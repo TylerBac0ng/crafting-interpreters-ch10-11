@@ -1,0 +1,3 @@
+print "unreachable";
+break;
+if (true) break;

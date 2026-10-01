@@ -1,0 +1,17 @@
+// break exits the innermost while loop
+var i = 0;
+while (true) {
+  if (i == 3) break;
+  print i;
+  i = i + 1;
+}
+print "after while";
+
+// break inside a desugared for loop, nested in another loop
+for (var x = 0; x < 3; x = x + 1) {
+  for (var y = 0; y < 10; y = y + 1) {
+    if (y == 2) break;
+    print x * 10 + y;
+  }
+}
+print "done";
