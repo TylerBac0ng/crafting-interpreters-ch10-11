@@ -1,0 +1,17 @@
+// Chapter 11, challenge 3: report locals that are never read.
+var global = "globals are never reported";
+
+fun f(unusedParam) {
+  var used = 1;
+  var unused = 2;
+  var onlyAssigned;
+  onlyAssigned = 3;
+  fun helper() {}
+  print used;
+}
+
+{
+  var outer = "read inside a closure counts";
+  fun show() { print outer; }
+  show();
+}

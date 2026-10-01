@@ -1,0 +1,7 @@
+var a = nil;
+print a;          // explicitly nil: fine
+var b;
+b = "assigned";
+print b;          // assigned before use: fine
+var c;
+print c;          // runtime error: never initialized or assigned

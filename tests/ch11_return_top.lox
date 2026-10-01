@@ -1,0 +1,2 @@
+// Chapter 11: "return" outside any function is a resolver error.
+return "top level";

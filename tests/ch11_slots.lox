@@ -1,0 +1,86 @@
+// Chapter 11, challenge 4: locals are found by (depth, index).
+
+// Several locals in one scope, each read and written by slot.
+{
+  var a = "a0";
+  var b = "b1";
+  var c = "c2";
+  b = b + "!";
+  print a + b + c;
+}
+
+// Parameters take the first slots, then locals.
+fun mix(x, y) {
+  var z = x * 10 + y;
+  return z;
+}
+print mix(4, 2);
+
+// Recursion: the function's own name is a global.
+fun fib(n) {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+print fib(20);
+
+// Closures read and write captured variables at the right depth.
+fun makeCounter() {
+  var count = 0;
+  fun increment() {
+    count = count + 1;
+    return count;
+  }
+  return increment;
+}
+var counter = makeCounter();
+counter();
+counter();
+print counter();
+
+// The closure bug from chapter 11: both calls must print "global".
+var a = "global";
+{
+  fun showA() {
+    print a;
+  }
+
+  showA();
+  var a = "block";
+  showA();
+  print a;
+}
+
+// Shadowing: the inner x gets its own slot, the outer one is unchanged.
+{
+  var x = "outer";
+  {
+    var x = "inner";
+    print x;
+  }
+  print x;
+}
+
+// break (chapter 9) and return inside loops inside functions.
+fun firstOver(limit) {
+  for (var i = 0; ; i = i + 1) {
+    if (i * i > limit) return i;
+  }
+}
+print firstOver(50);
+
+fun countTo(n) {
+  var i = 0;
+  while (true) {
+    if (i == n) break;
+    i = i + 1;
+  }
+  return i;
+}
+print countTo(4);
+
+// A local read before it is assigned is still an error (chapter 8).
+fun bad() {
+  var never;
+  print never;
+}
+bad();

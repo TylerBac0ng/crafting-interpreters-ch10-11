@@ -1,0 +1,14 @@
+// Chapter 11, challenge 4: a loop that reads and writes block locals.
+// Compare run time against an interpreter that stores locals in a map.
+{
+  var i = 0;
+  var sum = 0;
+  while (i < 5000000) {
+    {
+      var x = i;
+      sum = sum + x;
+    }
+    i = i + 1;
+  }
+  print sum;
+}

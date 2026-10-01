@@ -1,0 +1,8 @@
+// A loop outside a function does not enclose the function's body, so this
+// "break" is a syntax error (chapter 9 break + chapter 10 functions).
+while (true) {
+  fun f() {
+    break;
+  }
+  f();
+}

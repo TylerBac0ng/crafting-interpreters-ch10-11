@@ -1,0 +1,33 @@
+// Chapter 10, challenge 2: anonymous functions.
+
+// The example from the book.
+fun thrice(fn) {
+  for (var i = 1; i <= 3; i = i + 1) {
+    fn(i);
+  }
+}
+
+thrice(fun (a) {
+  print a;
+});
+
+// A lambda stored in a variable and returned from a function.
+var square = fun (x) { return x * x; };
+print square(7);
+
+fun makeAdder(n) {
+  return fun (x) { return x + n; };
+}
+var addTen = makeAdder(10);
+print addTen(5);
+
+// A lambda as an expression statement (the tricky case). It is legal; it
+// just creates a function and throws it away.
+fun () {};
+
+// Calling a lambda right where it is written.
+fun (a, b) { print a + b; }(20, 22);
+
+// Lambdas print without a name.
+print square;
+print thrice;

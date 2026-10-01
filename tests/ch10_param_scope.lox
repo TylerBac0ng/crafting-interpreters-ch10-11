@@ -1,0 +1,5 @@
+// Chapter 10, challenge 3: parameters and locals share one scope.
+fun scope(a) {
+  var a = "local";
+  print a;
+}

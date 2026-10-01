@@ -1,0 +1,3 @@
+[line 6] Error at 'unused': Local variable 'unused' is never used.
+[line 7] Error at 'onlyAssigned': Local variable 'onlyAssigned' is never used.
+[line 9] Error at 'helper': Local variable 'helper' is never used.

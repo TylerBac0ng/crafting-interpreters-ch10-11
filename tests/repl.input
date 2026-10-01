@@ -1,0 +1,11 @@
+1 + 2
+var a = 10;
+a * 2
+print "stmt";
+a = a + 1
+"hi" + "!"
+var u;
+u
+fun (x) { return x * 2; }(21)
+var sq = fun (n) { return n * n; };
+sq(9)
