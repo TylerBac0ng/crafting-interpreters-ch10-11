@@ -14,15 +14,15 @@ java -cp build com.craftinginterpreters.lox.Lox file.lox   # run a script
 ## Chapter 10 — Functions
 
 1. **Why Smalltalk doesn't check arity at runtime.** Written answer only
-   (see `answers.pdf`).
+   (submitted separately).
 2. **Anonymous functions.** `fun (a) { print a; }` is an expression. A
    named declaration is now `Stmt.Function(name, Expr.Function)`, so both
    share the same parsing, resolving and `LoxFunction` code. The tricky
    case `fun () {};` is handled with one token of lookahead: `fun`
    followed by a name is a declaration, otherwise it is an expression
    statement. See `tests/ch10_lambda.lox`.
-3. **Are parameters in the same scope as locals?** Written answer (see
-   `answers.pdf`). `tests/ch10_param_scope.lox` shows that this
+3. **Are parameters in the same scope as locals?** Written answer (submitted
+   separately). `tests/ch10_param_scope.lox` shows that this
    interpreter reports `var a` redeclaring parameter `a` as an error.
 
 ## Chapter 11 — Resolving and Binding
